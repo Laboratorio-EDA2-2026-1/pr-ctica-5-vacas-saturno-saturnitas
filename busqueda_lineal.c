@@ -48,7 +48,7 @@ int linearSearchImproved(int arr[], int n, int key) {
             return i;
         }
     }
-    return -1;
+    return -1; //Devuelve el nuevo índice tras la transposición
 } //Al último para que la transposición no afecte el índice de los demás
 
 int main() {
