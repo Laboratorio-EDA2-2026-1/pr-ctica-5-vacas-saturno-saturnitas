@@ -68,5 +68,11 @@ int main() {
     printf("Búsqueda lineal con centinela: índice %d\n", linearSearchSentinel(arr, n, key));
     printf("Búsqueda lineal mejorada: índice %d\n", linearSearchImproved(arr, n, key));
 
+printf("Arreglo tras búsqueda mejorada: ");
+for (int i = 0; i < n; i++) {
+    printf("%d ", arr[i]);
+}
+printf("\n");
+
     return 0;
 }
