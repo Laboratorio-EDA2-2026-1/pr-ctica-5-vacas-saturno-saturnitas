@@ -37,3 +37,44 @@ int main() {
 
     return 0;
 }
+
+//EJERCICIO 2
+#include <stdio.h>
+
+int main() {
+    double x;
+    int k;
+
+    printf("Introduce un número real x (0 <= x < 1): ");
+    scanf("%lf", &x);
+    if (x < 0 || x >= 1) {
+        printf("Número fuera del rango [0,1)\n");
+        return 1;
+    }
+
+    printf("Introduce el número de pasos k: ");
+    scanf("%d", &k);
+    if (k <= 0) {
+        printf("Número de pasos debe ser positivo\n");
+        return 1;
+    }
+
+    //Inicializar intervalo
+    double low = 0.0, high = 1.0;
+
+    printf("Código binario de %f en %d pasos: ", x, k);
+    for (int i = 0; i < k; i++) {
+        double mid = (low + high) / 2.0;
+
+        if (x < mid) {
+            printf("0");
+            high = mid; //ir a la mitad izquierda
+        } else {
+            printf("1");
+            low = mid; //ir a la mitad derecha
+        }
+    }
+
+    printf("\n");
+    return 0;
+}
