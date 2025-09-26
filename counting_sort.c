@@ -46,3 +46,70 @@ int main() {
     return 0;
 }
 
+//----Ejercicio 02----
+#include <stdio.h>
+#include <stdlib.h>
+
+// Definir los colores como constantes
+#define ROJO 0
+#define BLANCO 1
+#define AZUL 2
+
+//Lee y devuelve lo que esta en la posicion del arreglo
+int examine(int A[], int i) {
+    return A[i];
+}
+
+
+void counting(int A[], int n) {
+    int count[3] = {0};
+    //Hace el conteo de los colores dentro del arreglo que se recibe
+    for (int i = 0; i < n; i++) {
+        int color = examine(A, i);
+        count[color]++;
+    }
+
+    int indice = 0;
+    
+    for (int i = 0; i < count[ROJO]; i++) {
+        A[indice] = ROJO;
+        indice++;
+    }
+    
+    for (int i = 0; i < count[BLANCO]; i++) {
+        A[indice] = BLANCO;
+        indice++;
+    }
+    
+    for (int i = 0; i < count[AZUL]; i++) {
+        A[indice] = AZUL;
+        indice++;
+    }
+}
+
+void print(int A[], int n) {
+    const char* colorNames[] = {"ROJO", "BLANCO", "AZUL"};
+    printf("[");
+    for (int i = 0; i < n; i++) {
+        printf("%s", colorNames[A[i]]);
+        if (i < n - 1) printf(", ");
+    }
+    printf("]\n");
+}
+
+int main() {
+    
+    int colores[] = {AZUL, ROJO, BLANCO, AZUL, BLANCO, ROJO, ROJO, BLANCO, AZUL};
+    int n = sizeof(colores) / sizeof(colores[0]);
+    
+    printf("Arreglo original: ");
+    print(colores, n);
+    
+    counting(colores, n);
+    
+    printf("\nArreglo ordenado: ");
+    print(colores, n);
+    
+    return 0;
+}
+
